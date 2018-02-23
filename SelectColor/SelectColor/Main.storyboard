@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0R2-tP-Fe3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--颜色选择-->
+        <scene sceneID="zPe-vi-Erk">
+            <objects>
+                <viewController id="UB6-Zg-Thb" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Auq-XM-Xpg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EZH-lw-0M5">
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UB6-Zg-Thb" id="8zz-aQ-au1"/>
+                                    <outlet property="delegate" destination="UB6-Zg-Thb" id="WZn-U3-ZF1"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-2M-XDd">
+                                <rect key="frame" x="125" y="64" width="125" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="查白主题对应">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" title="查白主题对应">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSearchModel:" destination="UB6-Zg-Thb" eventType="touchUpInside" id="XHo-6D-Gfq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeu-9Y-XIg">
+                                <rect key="frame" x="250" y="64" width="125" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="查全部">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" title="查全部">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSearchModel:" destination="UB6-Zg-Thb" eventType="touchUpInside" id="eoU-tr-r6R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjT-pc-Qix">
+                                <rect key="frame" x="0.0" y="64" width="125" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Dt1-cA-3Vy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="查黑主题对应的">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" title="查黑主题对应的">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSearchModel:" destination="UB6-Zg-Thb" eventType="touchUpInside" id="pNd-kb-jqa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zeu-9Y-XIg" firstAttribute="bottom" secondItem="vjT-pc-Qix" secondAttribute="bottom" id="2FU-wK-ak7"/>
+                            <constraint firstItem="EZH-lw-0M5" firstAttribute="leading" secondItem="hsS-Pa-nvb" secondAttribute="leading" id="3d4-qm-UPg"/>
+                            <constraint firstItem="RoI-2M-XDd" firstAttribute="leading" secondItem="vjT-pc-Qix" secondAttribute="trailing" id="A4J-vv-ZeX"/>
+                            <constraint firstItem="RoI-2M-XDd" firstAttribute="width" secondItem="vjT-pc-Qix" secondAttribute="width" id="GkR-Dq-dlU"/>
+                            <constraint firstItem="hsS-Pa-nvb" firstAttribute="bottom" secondItem="EZH-lw-0M5" secondAttribute="bottom" id="Jii-1s-yWD"/>
+                            <constraint firstItem="zeu-9Y-XIg" firstAttribute="leading" secondItem="RoI-2M-XDd" secondAttribute="trailing" id="R81-VM-tw6"/>
+                            <constraint firstItem="hsS-Pa-nvb" firstAttribute="trailing" secondItem="EZH-lw-0M5" secondAttribute="trailing" id="Xa4-JJ-2gw"/>
+                            <constraint firstItem="hsS-Pa-nvb" firstAttribute="trailing" secondItem="zeu-9Y-XIg" secondAttribute="trailing" id="YmW-hy-Omz"/>
+                            <constraint firstItem="zeu-9Y-XIg" firstAttribute="width" secondItem="vjT-pc-Qix" secondAttribute="width" id="a4L-rx-6eb"/>
+                            <constraint firstItem="vjT-pc-Qix" firstAttribute="top" secondItem="hsS-Pa-nvb" secondAttribute="top" id="abv-Mu-hF2"/>
+                            <constraint firstItem="RoI-2M-XDd" firstAttribute="top" secondItem="vjT-pc-Qix" secondAttribute="top" id="hRA-dT-pgL"/>
+                            <constraint firstItem="RoI-2M-XDd" firstAttribute="bottom" secondItem="vjT-pc-Qix" secondAttribute="bottom" id="i1h-2h-dwx"/>
+                            <constraint firstItem="RoI-2M-XDd" firstAttribute="height" secondItem="vjT-pc-Qix" secondAttribute="height" id="iX7-JX-K1f"/>
+                            <constraint firstItem="zeu-9Y-XIg" firstAttribute="top" secondItem="vjT-pc-Qix" secondAttribute="top" id="iZX-8X-k5a"/>
+                            <constraint firstItem="zeu-9Y-XIg" firstAttribute="leading" secondItem="RoI-2M-XDd" secondAttribute="trailing" id="jFb-QL-nSg"/>
+                            <constraint firstItem="zeu-9Y-XIg" firstAttribute="height" secondItem="vjT-pc-Qix" secondAttribute="height" id="lGm-w4-rCP"/>
+                            <constraint firstItem="vjT-pc-Qix" firstAttribute="leading" secondItem="hsS-Pa-nvb" secondAttribute="leading" id="nnS-Ks-XJ5"/>
+                            <constraint firstItem="EZH-lw-0M5" firstAttribute="top" secondItem="hsS-Pa-nvb" secondAttribute="top" constant="40" id="zKr-cW-wym"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hsS-Pa-nvb"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="颜色选择" id="GGh-cO-6uI"/>
+                    <connections>
+                        <outlet property="lookAllBtn" destination="zeu-9Y-XIg" id="a1K-Nd-kcT"/>
+                        <outlet property="searchDisplayController" destination="AUt-8o-w0W" id="cg9-rN-aXi"/>
+                        <outlet property="selectTableView" destination="EZH-lw-0M5" id="zfJ-12-Rcz"/>
+                        <outlet property="tableviewTop" destination="zKr-cW-wym" id="I0W-Cu-q77"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VO2-Ib-SiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="AUt-8o-w0W">
+                    <connections>
+                        <outlet property="delegate" destination="UB6-Zg-Thb" id="gQT-bd-pwy"/>
+                        <outlet property="searchContentsController" destination="UB6-Zg-Thb" id="Wve-tk-SsJ"/>
+                        <outlet property="searchResultsDataSource" destination="UB6-Zg-Thb" id="zBv-5c-lIk"/>
+                        <outlet property="searchResultsDelegate" destination="UB6-Zg-Thb" id="L5o-e1-VR6"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="140.77961019490255"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Kl-gH-VCV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0R2-tP-Fe3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="brV-TG-Q9d">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UB6-Zg-Thb" kind="relationship" relationship="rootViewController" id="H3G-by-d8e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3a7-nb-amo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508" y="140"/>
+        </scene>
+    </scenes>
+</document>
