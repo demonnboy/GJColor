@@ -74,29 +74,27 @@ typedef NS_ENUM(NSUInteger,LookType) {
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self.datas removeAllObjects];
     NSString *inputStr = searchController.searchBar.text;
     inputStr = [[inputStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
-    if (inputStr.length == 6) {
-        [self.datas removeAllObjects];
-        [self.colorArray enumerateObjectsUsingBlock:^(GJColorModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (self.lookType == LookType_ALL) {
-                if ([obj.darkColor isEqualToString:inputStr]) {
-                    [self.datas addObject:obj];
-                } else if ([obj.lightColor isEqualToString:inputStr]){
-                    [self.datas addObject:obj];
-                }
-            } else if (self.lookType == LookType_BLACK) {
-                if ([obj.darkColor isEqualToString:inputStr]) {
-                    [self.datas addObject:obj];
-                }
-            } else if (self.lookType == LoolType_WHITE) {
-                if ([obj.lightColor isEqualToString:inputStr]) {
-                    [self.datas addObject:obj];
-                }
+    [self.colorArray enumerateObjectsUsingBlock:^(GJColorModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (self.lookType == LookType_ALL) {
+            if ([obj.darkColor containsString:inputStr]) {
+                [self.datas addObject:obj];
+            } else if ([obj.lightColor containsString:inputStr]){
+                [self.datas addObject:obj];
             }
-        }];
-        [self.selectTableView reloadData];
-    }
+        } else if (self.lookType == LookType_BLACK) {
+            if ([obj.darkColor containsString:inputStr]) {
+                [self.datas addObject:obj];
+            }
+        } else if (self.lookType == LoolType_WHITE) {
+            if ([obj.lightColor containsString:inputStr]) {
+                [self.datas addObject:obj];
+            }
+        }
+    }];
+    [self.selectTableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -114,7 +112,7 @@ typedef NS_ENUM(NSUInteger,LookType) {
             model = self.datas[indexPath.row];
         }
     } else {
-       model  = self.colorArray[indexPath.row];
+        model  = self.colorArray[indexPath.row];
     }
     cell.colorName.text = model.colorName;
     cell.darkColorName.text = model.darkColor;
@@ -216,3 +214,4 @@ typedef NS_ENUM(NSUInteger,LookType) {
 
 @implementation GJColorModel
 @end
+
